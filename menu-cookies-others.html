@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>DOGGY CAFE</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="images/dog.png" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<style>
+	/* ฟอนต์ไทยสำหรับคาเฟ่ */
+	.excerpt,
+	.price,
+	.offcanvas-body,
+	.breadcrumbs {
+		font-family: 'Mitr', 'Montserrat', Arial, sans-serif;
+	}
+
+	/* ปิด sidebar และ overlay เป็นค่าปกติ */
+	.offcanvas-custom,
+	.offcanvas-overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		/* ← เปลี่ยนจาก left: 0 เป็น right: 0 */
+		left: auto;
+		/* เพิ่มบรรทัดนี้เพื่อกันซ้อนกับ left */
+		height: 100%;
+		z-index: 1050;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	/* Sidebar */
+	.offcanvas-custom {
+		width: 300px;
+		background-color: #fff;
+		box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+		/* เงาจากขวา */
+		transform: translateX(100%);
+		overflow-y: auto;
+	}
+
+	/* Header และ body */
+	.offcanvas-header {
+		padding: 16px;
+		background: #f1f1f1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.offcanvas-body {
+		padding: 16px;
+	}
+
+	/* ปุ่มปิด */
+	.btn-close {
+		font-size: 24px;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	/* ปุ่มเปิด */
+	.btn-open {
+		padding: 10px 20px;
+		background-color: #007bff;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+	}
+
+	/* overlay ด้านหลัง */
+	.offcanvas-overlay {
+		width: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		transform: translateX(-100%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	/* แสดง sidebar */
+	.offcanvas-custom.active {
+		transform: translateX(0);
+	}
+
+	/* แสดง overlay */
+	.offcanvas-overlay.active {
+		transform: translateX(0);
+		opacity: 1;
+	}
+</style>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="images/dog.png" alt="dog icon" width="50"> DOGGY CAFE
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span> Menu
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item "><a href="about.html" class="nav-link">About</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							MENU
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="menu-main.html">MENU MAIN</a>
+							<a class="dropdown-item" href="menu-appetizer.html">MENU APPETIZER</a>
+							<a class="dropdown-item" href="menu-cake.html">MENU CAKE</a>
+                            <a class="dropdown-item" href="menu-cookies-others.html">MENU COOKIES & OTHERS</a>
+							<a class="dropdown-item" href="menu-drink.html">MENU DRINK</a>
+							<a class="dropdown-item" href="menu-coffee.html">MENU COFFEE</a>
+						</div>
+					</li>
+					<li class="nav-item"><a href="giftshop.html" class="nav-link">GIFTSHOP</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							REVIEW
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="gallery.html">DOG</a>
+							<a class="dropdown-item" href="review-food.html">FOOD</a>
+							<a class="dropdown-item" href="review-location.html">LOCATION</a>
+						</div>
+					</li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
+					<li class="nav-item"><a href="make-by.html" class="nav-link">MAKE BY</a></li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="order.html" class="nav-link">
+							<span class="fa fa-shopping-cart"></span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="login.html" class="nav-link">
+							<span class="fa fa-user"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<section class="hero-wrap hero-wrap-2">
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end">
+				<div class="col-md-12 ftco-animate pb-5">
+					<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home<i
+									class="ion-ios-arrow-forward"></i></a></span><span>> MENU <i
+								class="ion-ios-arrow-forward"></i></span></p>
+					<h1 class="mb-0 bread">MENU COOKIES & OTHERS </h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row">
+
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Chocolate\ Chip\ Matcha\ Cookies.jpg);">
+							<a href="images/cookie/Chocolate Chip Matcha Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้ช็อกโกแล็ตชิพมัทฉะ</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้ช็อกโกแล็ตชิพมัทฉะ</span>
+							<span class="price"><sup>฿</sup> <span class="number">49</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Black\ Raspberry\ and\ Lemon\ Shortbread\ Cookies.jpg);">
+							<a href="images/cookie/Black Raspberry and Lemon Shortbread Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้แบล็คราสเบอร์รีแอนด์เลทอน</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้แบล็คราสเบอร์รีแอนด์เลทอน</span>
+							<span class="price"><sup>฿</sup> <span class="number">49</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Butter\ Cookies.jpg);">
+							<a href="images/cookie/Butter Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้บัตเตอร์สตาร์</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้บัตเตอร์สตาร์</span>
+							<span class="price"><sup>฿</sup> <span class="number">39</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Chocolate\ Chip\ Cookies.jpg);">
+							<a href="images/cookie/Chocolate Chip Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกั้ช็อกโกแล็ตชิพ</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกั้ช็อกโกแล็ตชิพ</span>
+							<span class="price"><sup>฿</sup> <span class="number">49</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				 				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Double\ Chocolate\ Chip\ Cookies.jpg);">
+							<a href="images/cookie/Double Chocolate Chip Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้ดับเบิ้ลช็อกโก้ชิพ</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้ดับเบิ้ลช็อกโก้ชิพ</span>
+							<span class="price"><sup>฿</sup> <span class="number">55</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/M&M\ Cookies.jpg);">
+							<a href="images/cookie/M&M Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้เอ็มแอนด์เอ็ม</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้เอ็มแอนด์เอ็ม</span>
+							<span class="price"><sup>฿</sup> <span class="number">49</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Red\ Velvet\ Cookies.jpg);">
+							<a href="images/cookie/Red Velvet Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้เรดเวลเว็ต</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้เรดเวลเว็ต</span>
+							<span class="price"><sup>฿</sup> <span class="number">79</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Red\ Velvet\ Oreo\ Cookies.jpg);">
+							<a href="images/cookie/Red Velvet Oreo Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้เรดเวลเว็ตโอริโอ้</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้เรดเวลเว็ตโอริโอ้</span>
+							<span class="price"><sup>฿</sup> <span class="number">89</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Raspberry\ White\ Chocolate\ Cookies.jpg);">
+							<a href="images/cookie/Raspberry White Chocolate Cookies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>คุกกี้ราสเบอร์รี่ไวท์ช็อก</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">คุกกี้ราสเบอร์รี่ไวท์ช็อก</span>
+							<span class="price"><sup>฿</sup> <span class="number">79</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Chocolate\ Croissant.jpg);">
+							<a href="images/cookie/Chocolate Croissant.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ครัวซองต์ช็อกโกแล็ต</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ครัวซองต์ช็อกโกแล็ต</span>
+							<span class="price"><sup>฿</sup> <span class="number">59</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Chocolate\ Drizzled\ Crepe\ with\ Ice\ Cream\ &\ Whipped\ Cream.jpg);">
+							<a href="images/cookie/Chocolate Drizzled Crepe with Ice Cream & Whipped Cream.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>เครปช็อกโกแล็ตไอศกรีมออนท็อป</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">เครปช็อกโกแล็ตไอศกรีมออนท็อป</span>
+							<span class="price"><sup>฿</sup> <span class="number">69</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Churros.jpg);">
+							<a href="images/cookie/Churros.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ชูโรส</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ชูโรส</span>
+							<span class="price"><sup>฿</sup> <span class="number">49</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Croissant.jpg);">
+							<a href="images/cookie/Croissant.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ครัวซองต์</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ครัวซองต์</span>
+							<span class="price"><sup>฿</sup> <span class="number">39</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->				 
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Egg\ Tart.jpg);">
+							<a href="images/cookie/Egg Tart.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ทาร์ตไข่</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ทาร์ตไข่</span>
+							<span class="price"><sup>฿</sup> <span class="number">25</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/macaron.jpg);">
+							<a href="images/cookie/macaron.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>มาการอง</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">มาการอง</span>
+							<span class="price"><sup>฿</sup> <span class="number">79</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Matcha\ Timbering.jpg);">
+							<a href="images/cookie/Matcha Timbering.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ทิมเบอร์ริงมัทฉะ</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ทิมเบอร์ริงมัทฉะ</span>
+							<span class="price"><sup>฿</sup> <span class="number">59</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Mini\ Chocolate\ Tarts.jpg);">
+							<a href="images/cookie/Mini Chocolate Tarts.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>มินิช็อกโก้ทาร์ต</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">มินิช็อกโก้ทาร์ต</span>
+							<span class="price"><sup>฿</sup> <span class="number">89</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Mixed\ Berry\ Tart.jpg);">
+							<a href="images/cookie/Mixed Berry Tart.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ทาร์ตมิกซ์เบอร์รี</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ทาร์ตมิกซ์เบอร์รี</span>
+							<span class="price"><sup>฿</sup> <span class="number">89</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Panna\ cotta\ al\ caramello.jpg);">
+							<a href="images/cookie/Panna cotta al caramello.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>พานาคอตต้า</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">พานาคอตต้า</span>
+							<span class="price"><sup>฿</sup> <span class="number">99</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Peanut\ Butter\ Brownies.jpg);">
+							<a href="images/cookie/Peanut Butter Brownies.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>พีนัตบัตเตอร์บราวน์นี</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">พีนัตบัตเตอร์บราวน์นี</span>
+							<span class="price"><sup>฿</sup> <span class="number">85</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+				<!-- เริ่มเมนู -->
+				<div class="col-md-4 ftco-animate">
+					<div class="block-7">
+						<div class="work mb-4 img d-flex align-items-end"
+							style="background-image: url(images/cookie/Peanut\ butter\ caramel\ Timbering.jpg);">
+							<a href="images/cookie/Peanut butter caramel Timbering.jpg"
+								class="icon image-popup d-flex justify-content-center align-items-center">
+								<span class="fa fa-expand"></span>
+							</a>
+							<div class="desc w-100 px-4">
+								<div class="text w-100 mb-3">
+									<span>COOKIES & OTHERS</span>
+									<h2>ทิมเบอร์ริงพีนัตบัตเตอร์คาราเมล</h2>
+								</div>
+							</div>
+						</div>
+						<div class="text-center p-4">
+							<span class="excerpt d-block">ทิมเบอร์ริงพีนัตบัตเตอร์คาราเมล</span>
+							<span class="price"><sup>฿</sup> <span class="number">99</span> <sub>/บาท</sub></span>
+							<button onclick="openSidebar()" type="button"  class="btn btn-primary d-block px-2 py-3">Add to
+								cart</a>
+						</div>
+					</div>
+				</div>
+				<!-- จบเมนู -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<form action="order.html">
+					<!-- Sidebar -->
+					<div id="offcanvasSidebar" class="offcanvas-custom">
+						<div class="offcanvas-header">
+							<h2>CART</h2>
+							<button onclick="closeSidebar()" class="btn-close" type="button">&times;</button>
+						</div>
+						<div class="offcanvas-body">
+							<p>รายการเมนูที่สั่ง โต๊ะ : 5</p>
+							<li>เค้กสตอเบอรี่</li>
+							<li>เค้กนมสด</li>
+							<li>น้ำส้ม</li>
+							<li>แก้วน้ำลายน้องหมา</li>
+							<br>
+							<input type="submit" value="ยืนยันออเดอร์" onclick="alert('ยืนยันออเดอร์')"
+								class="btn btn-success">
+						</div>
+					</div>
+				</form>
+
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-2 mb-4 mb-md-0">
+					<h2 class="footer-heading">DOGGY CAFE !</h2>
+					<p>รอยยิ้มมาก</p>
+					<ul class="ftco-footer-social p-0">
+						<li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top"
+								title="Facebook"><span class="fa fa-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top"
+								title="Instagram"><span class="fa fa-instagram"></span></a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+					<h2 class="footer-heading">Quick Links</h2>
+					<ul class="list-unstyled">
+						<li><a href="./index.html" class="py-2 d-block">Home</a></li>
+						<li><a href="./about.html" class="py-2 d-block">About</a></li>
+						<li><a href="./giftshop.html" class="py-2 d-block">Giftshop</a></li>
+						<li><a href="./contact.html" class="py-2 d-block">Contact</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+					<h2 class="footer-heading">Quick Links</h2>
+					<ul class="list-unstyled">
+						<li><a href="./gallery.html" class="py-2 d-block">Gallery</a></li>
+						<li><a href="./review-food.html" class="py-2 d-block">Review-Food</a></li>
+						<li><a href="./faq.html" class="py-2 d-block">Q&A</a></li>
+						<li><a href="./howtopay.html" class="py-2 d-block">HowToPay</a></li>
+						<li><a href="./howtocart.html" class="py-2 d-block">HowToCart</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-lg-4 mb-4 mb-md-0">
+					<h2 class="footer-heading">Contact info</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon fa fa-map"></span><span
+									class="text">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</span>
+							</li>
+							<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">037 217
+										300</span></a></li>
+							<li><a href="#"><span class="icon fa fa-paper-plane"></span><span
+										class="text">kmutnb@email.kmutnb.ac.th <img src="./images/payment/payment-removebg-preview.png" width="300px"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.timepicker.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+
+	<script>
+		function openSidebar() {
+			document.getElementById('offcanvasSidebar').classList.add('active');
+			document.getElementById('offcanvasOverlay').classList.add('active');
+		}
+
+		function closeSidebar() {
+			document.getElementById('offcanvasSidebar').classList.remove('active');
+			document.getElementById('offcanvasOverlay').classList.remove('active');
+		}
+	</script>
+</body>
+
+</html>
