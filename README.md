@@ -7,9 +7,9 @@
 ## โครงสร้างโปรเจค (ไฟล์สำคัญ)
 โปรเจคนี้เป็น static site โดยไฟล์สำคัญที่มีใน repository นี้คือ:
 
-/project-root (จริงอยู่ที่ c:\Users\few71\PycharmProjects\DOGGY-WEBSITE - Copy for github me)
-├─ index.html                      — หน้าเว็บหลัก (HTML)
-├─ README.md                       — เอกสารนี้
+/project-root 
+├─ index.html 
+├─ README.md 
 ├─ css/
 │  ├─ animate.css
 │  ├─ owl.carousel.min.css
@@ -35,7 +35,7 @@
 │  ├─ scrollax.min.js
 │  ├─ google-map.js
 │  └─ main.js
-└─ images/                         — รูปภาพที่ใช้ในหน้าเว็บ (news/, coffee/, cake/, drink/, contact/, ฯลฯ)
+└─ images/
 
 ---
 
