@@ -7,9 +7,10 @@
 ## โครงสร้างโปรเจค (ไฟล์สำคัญ)
 โปรเจคนี้เป็น static site โดยไฟล์สำคัญที่มีใน repository นี้คือ:
 
-/project-root 
-├─ index.html 
-├─ README.md 
+```
+/project-root
+├─ index.html
+├─ README.md
 ├─ css/
 │  ├─ animate.css
 │  ├─ owl.carousel.min.css
@@ -36,6 +37,7 @@
 │  ├─ google-map.js
 │  └─ main.js
 └─ images/
+```
 
 ---
 
